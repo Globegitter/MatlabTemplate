@@ -1,4 +1,4 @@
-t stash -q --keep-index
+git stash -q --keep-index
 ./run_tests.sh
 RESULT=$?
 git stash pop -q
