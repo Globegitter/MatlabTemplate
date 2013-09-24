@@ -10,7 +10,7 @@ if ~isempty(init)
     beta = init{2};
 else
     beta0 = mean(y);
-    beta = ones(k,1);
+    beta = 0.1*ones(k,1);
 end
 
 % assume default tolerance and number of iterations
@@ -21,26 +21,18 @@ MAXIT = 100;
 lls = zeros(MAXIT,1);
 prevll = -realmax;
 
-y
-ysize = size(y)
-x
-lambda
-beta0
-beta
+
 ll = loglik(y,x,lambda,alpha,beta0,beta);
-disp('before for loop')
-ll
 iter = 0;
 
-close all;
+%close all;
 %figure(1);
-clf
+%clf
 %ax1 = axes('Position',[0.1 0.85 0.7 0.045])
 %ax2 = axes('Position',[0.1 0.8 0.7 0.045]);
 %ax3 = axes('Position',[0.81 0.3 0.09 0.49]);
 %ax4 = axes('Position',[0.1 0.3 0.7 0.49]);
 %ax5 = axes('Position',[0.1 0.05 0.8 0.2]);
-
 while ll-prevll > TOL && iter < MAXIT
     iter = iter+1;
     prevll = ll;
@@ -49,22 +41,15 @@ while ll-prevll > TOL && iter < MAXIT
     beta0 = 1/n*sum(y - x*beta);
     for j=1:k
         beta(j) = 0;
-        %test = (y - beta0 - x*beta)
-        %test = (sum(x(:,j).^2))
         beta(j) = 1/(sum(x(:,j).^2) + lambda*(alpha)) * shrinkThreshold((y - beta0 - x*beta)'*x(:,j),(1-alpha)*lambda);
-        %beta(j)
     end
     
     % likelihood for new state
-    %beta0
-    %beta
     ll = loglik(y,x,lambda,alpha,beta0,beta);
     
     assert(ll-prevll>=0)
     
     lls(iter) = ll;
-    beta0
-    ll
     
     %axes(ax1);cla;
     %imagema(y');
@@ -83,7 +68,7 @@ while ll-prevll > TOL && iter < MAXIT
     %title('beta')
     %set(gca,'YTick',[]);
     %ylim([0.5 length(beta)+0.5])
-    %xlim([-max(abs(beta)) max(abs(beta))])
+    %xlim([-max(abs(beta)+1e-3) max(abs(beta)+1e-3)])
     
     %axes(ax4);cla;
     %imagema(x');
@@ -92,10 +77,7 @@ while ll-prevll > TOL && iter < MAXIT
     %axes(ax5);cla;
     %plot(lls(1:iter))
     %xlabel('iteration');
-    %ylabel('log-likelihood');
-    
-    %drawnow
-
+    %ylabel('penalized log-likelihood');
 end
 
 function ll = loglik(y,x,lambda,alpha,beta0,beta)
@@ -104,7 +86,5 @@ ll = -1/2*(y - beta0 - x*beta)'*(y - beta0 - x*beta)...
     -alpha*lambda/2*sum(beta.^2) - (1-alpha)*lambda*sum(abs(beta));
 
 function b = shrinkThreshold(b,lambda)
-sigb = sign(b);
-ma = max(abs(b) - lambda,0);
-b = sigb.*ma;
+b = sign(b).*max(abs(b) - lambda,0);
 
