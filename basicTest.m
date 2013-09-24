@@ -27,7 +27,7 @@ classdef basicTest < matlab.unittest.TestCase
             x = rand(N, p);
             y = beta0 + x*beta;
             [beta0, beta] = coordAscentENet(y, x, 0.1, 0, {});
-            testCase.assertSize(beta, [1 1]);
+            testCase.assertSize(beta, [2 1]);
 			%testcase.verifySize() testcase.assertSize()
 			%testcase.fatalAssertSize() testcase.assumeSize() Differences:
 			%verify: continues the current test (softfailure) assert holds
