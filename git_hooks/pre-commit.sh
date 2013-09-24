@@ -1,5 +1,5 @@
 git stash -q --keep-index
-(cd ../ && matlab -nosplash -nodesktop –nojvm –noFigureWindows -nodisplay -r "run(basicTest),quit")
+git_hooks/run_tests.sh
 RESULT=$?
 git stash pop -q
 [ $RESULT -ne 0 ] && exit 1
