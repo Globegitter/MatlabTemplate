@@ -1,4 +1,4 @@
-classdef basicTest < matlab.unittest.TestCase
+classdef moduleTests < matlab.unittest.TestCase
     
 
 	properties
