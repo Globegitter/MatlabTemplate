@@ -14,8 +14,8 @@ else
 end
 
 % assume default tolerance and number of iterations
-TOL = 1e-5;
-MAXIT = 100;
+TOL = 1e-6;
+MAXIT = 500;
 
 % tracking likelihood
 lls = zeros(MAXIT,1);
