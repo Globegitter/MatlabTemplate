@@ -15,5 +15,7 @@
 # Simulink Code Generation	
 slprj/
 
-# Simuling Project Folder
+# Simulink Project Folder
 .SimulinkProject/
+
+
