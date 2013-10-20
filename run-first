@@ -4,4 +4,4 @@
 #or: sh run-first
 
 #Sets up a symbolic link for the pre-commit hook
-ln -s ../../git_hook/pre-commit.sh .git/hooks/pre-commit
+ln -s ../../git_hooks/pre-commit.sh .git/hooks/pre-commit
