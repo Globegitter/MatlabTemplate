@@ -7,7 +7,8 @@ classdef basicTest < matlab.unittest.TestCase
 
 	methods(TestMethodSetup)
 		function addFileToPath(testCase)
-			%%probably needs to be changed since that is in a subfolder
+			%%Please ignore! Possibly needed for future use
+			%probably needs to be changed since that is in a subfolder
 			%testCase.OriginalPath = path;
 			%addpath(fullfile(pwd, '../'))
 		end
@@ -15,25 +16,21 @@ classdef basicTest < matlab.unittest.TestCase
 
 	methods(TestMethodTeardown)
 		function restorePath(testCase)
+			%%Please ignore! Possibly needed for future use
 			%path(testCase.OriginalPath)
 		end
 	end
 
 	methods(Test)
-		function testDimensions(testCase)
-            beta0 = 1; beta = [1 1 1 1 0 0 0 0]';
-            N=100;
-            p = length(beta);
-            x = rand(N, p);
-            y = beta0 + x*beta;
-            [beta0, beta] = coordAscentENet(y, x, 0.1, 0, {});
-            testCase.assertSize(beta, [p 1]);
-			%testcase.verifySize() testcase.assertSize()
-			%testcase.fatalAssertSize() testcase.assumeSize() Differences:
-			%verify: continues the current test (softfailure) assert holds
-			%the current test and runs the next test; test is marked failed
-			%and incomplete fatal holds the entire test suite assume: You
-			%can filter tests, they are not marked as failure
-        end
+		%Naming: e.g. testCoordinateAscent or testADMM, whatever module you are testing
+		%or you can get a bit more specific, e.g. testDimensions or testADMMDimensions
+		function testName(testCase)
+			%Initialize some testcalues and run the function that is being tested
+			%then use one of the following functions
+			%testCase.assertSize(matrix, size) e.g. assertSize(A, [10 2]);
+			%testCase.assertEqual(actualSoltion, expectedSolution, 'AbsTol', 0.01)
+			%For a complete list see
+			%http://www.mathworks.com/help/matlab/matlab_prog/select-qualifications.html
+	end
     end
  end
