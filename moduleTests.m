@@ -32,5 +32,8 @@ classdef basicTest < matlab.unittest.TestCase
 			%For a complete list see
 			%http://www.mathworks.com/help/matlab/matlab_prog/select-qualifications.html
 	end
+		function testName2(testCase)
+			%This file can have as many functions as you want
+		end
     end
  end
