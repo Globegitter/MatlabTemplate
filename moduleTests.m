@@ -1,4 +1,4 @@
-classdef moduleTests < matlab.unittest.TestCase 
+classdef modulesTest < matlab.unittest.TestCase 
 
     properties
         OriginalPath
