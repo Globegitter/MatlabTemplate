@@ -33,8 +33,8 @@ classdef modulesTest < matlab.unittest.TestCase
             %http://www.mathworks.com/help/matlab/matlab_prog/select-qualifications.html
         end
 
-        %function testNameNew(testCase)
+        function testNameNew(testCase)
             %This file can have as many functions as you want
-        %end
+        end
     end
  end
