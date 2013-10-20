@@ -9,7 +9,7 @@ Clone only the repository content:
 git clone --depth=1 git@github.com:Globegitter/MatlabTemplate.git . && rm -rf .git
 ```
 
-To set up the pre-commit hook, run:
+To set up a new repository and the pre-commit hook, run before anything else:
 
 ```
 ./run-first
