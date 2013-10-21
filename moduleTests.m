@@ -6,7 +6,7 @@ classdef moduleTests < matlab.unittest.TestCase
 
     methods(TestMethodSetup)
         function addFileToPath(testCase)
-            %%Please ignore! Possibly needed for future use
+            %%Can be safely deleted! Possibly needed for future use
             %probably needs to be changed since that is in a subfolder
             %testCase.OriginalPath = path;
             %addpath(fullfile(pwd, '../'))
@@ -15,7 +15,7 @@ classdef moduleTests < matlab.unittest.TestCase
 
     methods(TestMethodTeardown)
         function restorePath(testCase)
-            %%Please ignore! Possibly needed for future use
+            %%Can be safely deleted! Possibly needed for future use
             %path(testCase.OriginalPath)
         end
     end
