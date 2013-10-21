@@ -1,12 +1,16 @@
 #!/bin/sh
 
 #Run before doing anything else!
-#Run either using: ./run-first
-#or: sh run-first
+#Execute using one of the following two ways: 
+#./run-first
+#sh run-first
 
-#Initializes git repository. Only adds new files if repository already exists, so is safe.
-git init
-git add -A
-git commit -a -m "Initial commit"
+#Checks if a repository with commits exists. If not initialize and make a first commit
+if !(git rev-parse HEAD > /dev/null 2>&1); then 
+    git init
+    git add -A
+    git commit -a -m "Initial commit"
+fi
+
 #Sets up a symbolic link for the pre-commit hook
 ln -s ../../git_hooks/pre-commit.sh .git/hooks/pre-commit
