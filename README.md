@@ -4,7 +4,7 @@ Template repository for new Matlab projects which provides a template-file to cr
 
 ## Setup
 
-Clone template and set up a new repository as well as the pre-commit hook:
+Clone the template, set up a new repository as well as the pre-commit hook:
 
 ```
 git clone --depth=1 git@github.com:Globegitter/MatlabTemplate.git . && rm -rf .git && ./run-first
