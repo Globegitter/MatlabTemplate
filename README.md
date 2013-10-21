@@ -10,4 +10,4 @@ Clone the template, set up a new repository as well as the pre-commit hook:
 git clone --depth=1 git@github.com:Globegitter/MatlabTemplate.git . && rm -rf .git && ./run-first
 ```
 
-Now you just have to modify the contents in ```moduleTests.m``` to fit your needs
+Now you just have to modify the contents in ```moduleTests.m``` to fit your needs and use git/Matlab as usual.
