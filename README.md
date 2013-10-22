@@ -12,4 +12,4 @@ git clone --depth=1 https://github.com/Globegitter/MatlabTemplate.git . && rm -r
 
 Now you just have to modify the contents in ```moduleTests.m``` to fit your needs and use git/Matlab as usual.
 
-Note: Since the ```run-first``` script creates a local repository you will probably want to add an origin (new github repository) via ```git remote add origin url https://username@github.com/user/repo.git``` and afterwards ```git push -u origin master``` to set it as default.
+Note: Since the ```run-first``` script creates a local repository you will probably want to add an origin (new github repository) via ```git remote add origin https://username@github.com/user/repo.git``` or simply ```git@github.com:user/repo.git``` if you have SSH keys set up. Afterwards ```git push -u origin master``` to set it as default.
